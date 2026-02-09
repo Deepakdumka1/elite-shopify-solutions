@@ -1,4 +1,5 @@
 import { Store, RefreshCw, Globe, Wrench } from "lucide-react";
+import FadeIn from "./FadeIn";
 
 const services = [
   {
@@ -27,27 +28,28 @@ const Services = () => {
   return (
     <section id="services" className="py-32 px-6 border-t border-border">
       <div className="max-w-6xl mx-auto">
-        <p className="text-sm uppercase tracking-[0.3em] text-muted-foreground mb-4">
-          What I Do
-        </p>
-        <h2 className="text-3xl md:text-5xl font-display font-semibold text-foreground mb-20">
-          Services
-        </h2>
+        <FadeIn>
+          <p className="text-sm uppercase tracking-[0.3em] text-muted-foreground mb-4">
+            What I Do
+          </p>
+          <h2 className="text-3xl md:text-5xl font-display font-semibold text-foreground mb-20">
+            Services
+          </h2>
+        </FadeIn>
 
         <div className="grid md:grid-cols-2 gap-8">
-          {services.map((service) => (
-            <div
-              key={service.title}
-              className="p-8 rounded-lg border border-border bg-card hover:bg-accent transition-colors group"
-            >
-              <service.icon className="w-6 h-6 text-muted-foreground mb-6 group-hover:text-foreground transition-colors" />
-              <h3 className="text-xl font-display font-semibold text-foreground mb-3">
-                {service.title}
-              </h3>
-              <p className="text-muted-foreground leading-relaxed">
-                {service.description}
-              </p>
-            </div>
+          {services.map((service, i) => (
+            <FadeIn key={service.title} delay={i * 0.1}>
+              <div className="p-8 rounded-lg border border-border bg-card hover:bg-accent transition-colors group h-full">
+                <service.icon className="w-6 h-6 text-muted-foreground mb-6 group-hover:text-foreground transition-colors" />
+                <h3 className="text-xl font-display font-semibold text-foreground mb-3">
+                  {service.title}
+                </h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  {service.description}
+                </p>
+              </div>
+            </FadeIn>
           ))}
         </div>
       </div>
