@@ -1,6 +1,7 @@
 import caseShoesImg from "@/assets/case-shoes.jpg";
 import caseElectricalImg from "@/assets/case-electrical.jpg";
 import caseHairoilImg from "@/assets/case-hairoil.jpg";
+import FadeIn from "./FadeIn";
 
 const caseStudies = [
   {
@@ -42,12 +43,14 @@ const CaseStudies = () => {
   return (
     <section id="work" className="py-32 px-6">
       <div className="max-w-6xl mx-auto">
-        <p className="text-sm uppercase tracking-[0.3em] text-muted-foreground mb-4">
-          Selected Work
-        </p>
-        <h2 className="text-3xl md:text-5xl font-display font-semibold text-foreground mb-20">
-          Case Studies
-        </h2>
+        <FadeIn>
+          <p className="text-sm uppercase tracking-[0.3em] text-muted-foreground mb-4">
+            Selected Work
+          </p>
+          <h2 className="text-3xl md:text-5xl font-display font-semibold text-foreground mb-20">
+            Case Studies
+          </h2>
+        </FadeIn>
 
         <div className="space-y-32">
           {caseStudies.map((study, i) => (
@@ -55,7 +58,7 @@ const CaseStudies = () => {
               key={study.title}
               className={`flex flex-col ${i % 2 === 1 ? "lg:flex-row-reverse" : "lg:flex-row"} gap-12 lg:gap-16 items-center`}
             >
-              <div className="lg:w-3/5">
+              <FadeIn className="lg:w-3/5" delay={0.1}>
                 <div className="rounded-lg overflow-hidden bg-secondary aspect-[4/3]">
                   <img
                     src={study.image}
@@ -64,8 +67,8 @@ const CaseStudies = () => {
                     loading="lazy"
                   />
                 </div>
-              </div>
-              <div className="lg:w-2/5">
+              </FadeIn>
+              <FadeIn className="lg:w-2/5" delay={0.25}>
                 <span className="text-sm uppercase tracking-[0.2em] text-muted-foreground">
                   {study.region}
                 </span>
@@ -83,7 +86,7 @@ const CaseStudies = () => {
                     </li>
                   ))}
                 </ul>
-              </div>
+              </FadeIn>
             </div>
           ))}
         </div>
